@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+
+    <changeSet id="1622393071192-1" author="antongrutsin">
+        <dropColumn tableName="category" columnName="parent"/>
+        <addUniqueConstraint tableName="category" columnNames="name" constraintName="category-name"/>
+        <addUniqueConstraint tableName="user" columnNames="login" constraintName="user_login"/>
+        <addUniqueConstraint tableName="user" columnNames="email" constraintName="user_email"/>
+    </changeSet>
+
+
+</databaseChangeLog>
