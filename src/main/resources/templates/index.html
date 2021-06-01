@@ -1,0 +1,175 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<nav th:replace="head.html :: head"></nav>
+    <body>
+		<nav th:replace="header.html :: header"></nav>
+        <!--================Header Menu Area =================-->
+        
+        <!--================Home Banner Area =================-->
+        <section class="home_banner_area">
+            <div class="banner_inner d-flex align-items-center">
+				<div class="container">
+					<div class="banner_content row">
+						<div class="col-lg-5">
+							<h3>Коллекция <br />идеальный шлем!</h3>
+							<p>Стильные и безопасные шлемы для любых видов экстремальных видов спорта.</p>
+							<a class="white_bg_btn" href="#">Посмотреть коллекцию</a>
+						</div>
+						<div class="col-lg-7">
+							<div class="halemet_img">
+								<img th:src="@{img/banner/helmat.png}" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+        
+        <!--================Feature Product Area =================-->
+        <section class="feature_product_area">
+        	<div class="main_box">
+				<div class="container">
+					<div class="row hot_product_inner">
+						<div class="col-lg-6">
+							<div class="hot_p_item">
+								<img class="img-fluid" th:src="@{img/product/hot-product/hot-p-1.jpg}" alt="">
+								<div class="product_text">
+									<h4>Новые поступления <br />в этом месяце</h4>
+									<a href="#">Купить сейчас</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="hot_p_item">
+								<img class="img-fluid" th:src="@{img/product/hot-product/hot-p-1.jpg}" alt="">
+								<div class="product_text">
+									<h4>Новые поступления <br />в этом месяце</h4>
+									<a href="#">Купить сецйчас</a>
+								</div>
+							</div>
+						</div>
+					</div>
+<!--					<div class="feature_product_inner">-->
+<!--						<div class="main_title">-->
+<!--							<h2>Популярные товары</h2>-->
+<!--							<p>Кто безумно любит экологически чистые продукты</p>-->
+<!--						</div>-->
+<!--						<div class="feature_p_slider owl-carousel">-->
+<!--							<div class="item">-->
+<!--								<div class="f_p_item">-->
+<!--									<div class="f_p_img">-->
+<!--										<img class="img-fluid" th:src="@{img/product/feature-product/f-p-1.jpg}" alt="">-->
+<!--										<div class="p_icon">-->
+<!--											<a href="#"><i class="lnr lnr-heart"></i></a>-->
+<!--											<a href="#"><i class="lnr lnr-cart"></i></a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<a href="#"><h4>Long Sleeve TShirt</h4></a>-->
+<!--									<h5>$150.00</h5>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="item">-->
+<!--								<div class="f_p_item">-->
+<!--									<div class="f_p_img">-->
+<!--										<img class="img-fluid" th:src="@{img/product/feature-product/f-p-1.jpg}" alt="">-->
+<!--										<div class="p_icon">-->
+<!--											<a href="#"><i class="lnr lnr-heart"></i></a>-->
+<!--											<a href="#"><i class="lnr lnr-cart"></i></a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<a href="#"><h4>Long Sleeve TShirt</h4></a>-->
+<!--									<h5>$150.00</h5>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="item">-->
+<!--								<div class="f_p_item">-->
+<!--									<div class="f_p_img">-->
+<!--										<img class="img-fluid" th:src="@{img/product/feature-product/f-p-1.jpg}" alt="">-->
+<!--										<div class="p_icon">-->
+<!--											<a href="#"><i class="lnr lnr-heart"></i></a>-->
+<!--											<a href="#"><i class="lnr lnr-cart"></i></a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<a href="#"><h4>Long Sleeve TShirt</h4></a>-->
+<!--									<h5>$150.00</h5>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="item">-->
+<!--								<div class="f_p_item">-->
+<!--									<div class="f_p_img">-->
+<!--										<img class="img-fluid" th:src="@{img/product/feature-product/f-p-1.jpg}" alt="">-->
+<!--										<div class="p_icon">-->
+<!--											<a href="#"><i class="lnr lnr-heart"></i></a>-->
+<!--											<a href="#"><i class="lnr lnr-cart"></i></a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<a href="#"><h4>Long Sleeve TShirt</h4></a>-->
+<!--									<h5>$150.00</h5>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="item">-->
+<!--								<div class="f_p_item">-->
+<!--									<div class="f_p_img">-->
+<!--										<img class="img-fluid" th:src="@{img/product/feature-product/f-p-2.jpg}" alt="">-->
+<!--										<div class="p_icon">-->
+<!--											<a href="#"><i class="lnr lnr-heart"></i></a>-->
+<!--											<a href="#"><i class="lnr lnr-cart"></i></a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<a href="#"><h4>Long Sleeve TShirt</h4></a>-->
+<!--									<h5>$150.00</h5>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="item">-->
+<!--								<div class="f_p_item">-->
+<!--									<div class="f_p_img">-->
+<!--										<img class="img-fluid" th:src="@{img/product/feature-product/f-p-3.jpg}" alt="">-->
+<!--										<div class="p_icon">-->
+<!--											<a href="#"><i class="lnr lnr-heart"></i></a>-->
+<!--											<a href="#"><i class="lnr lnr-cart"></i></a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<a href="#"><h4>Long Sleeve TShirt</h4></a>-->
+<!--									<h5>$150.00</h5>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="item">-->
+<!--								<div class="f_p_item">-->
+<!--									<div class="f_p_img">-->
+<!--										<img class="img-fluid" th:src="@{img/product/feature-product/f-p-4.jpg}" alt="">-->
+<!--										<div class="p_icon">-->
+<!--											<a href="#"><i class="lnr lnr-heart"></i></a>-->
+<!--											<a href="#"><i class="lnr lnr-cart"></i></a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<a href="#"><h4>Long Sleeve TShirt</h4></a>-->
+<!--									<h5>$150.00</h5>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="item">-->
+<!--								<div class="f_p_item">-->
+<!--									<div class="f_p_img">-->
+<!--										<img class="img-fluid" th:src="@{img/product/feature-product/f-p-5.jpg}" alt="">-->
+<!--										<div class="p_icon">-->
+<!--											<a href="#"><i class="lnr lnr-heart"></i></a>-->
+<!--											<a href="#"><i class="lnr lnr-cart"></i></a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<a href="#"><h4>Long Sleeve TShirt</h4></a>-->
+<!--									<h5>$150.00</h5>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+				</div>
+        	</div>
+        </section>
+        <!--================End Feature Product Area =================-->
+
+        <!--================ start footer Area  =================-->	
+        <nav th:replace="footer.html :: footer"></nav>
+		<!--================ End footer Area  =================-->
+
+    </body>
+</html>
