@@ -4,5 +4,10 @@
       "name": "liquibase.change-log",
       "type": "java.lang.String",
       "description": "Description for liquibase.change-log."
-  }
-] }
+    },
+    {
+      "name": "spring.thymeleaf.content-type",
+      "type": "java.lang.String",
+      "description": "Description for spring.thymeleaf.content-type."
+    }
+  ] }

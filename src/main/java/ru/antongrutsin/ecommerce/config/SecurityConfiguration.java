@@ -9,8 +9,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import ru.antongrutsin.ecommerce.security.AuthoritiesConstants;
 import ru.antongrutsin.ecommerce.service.UserService;
 
 @Configuration
@@ -36,6 +38,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+                .and()
                 .csrf()
                     .disable()
                 .cors()
@@ -45,7 +49,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/product").permitAll()
-                .anyRequest().permitAll();
+                .antMatchers("/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)
+                .anyRequest().permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/login").usernameParameter("login").passwordParameter("password")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/")
+                .permitAll()
+                .and()
+                .logout()
+                .deleteCookies()
+                .clearAuthentication(true)
+                .logoutSuccessUrl("/");
+
     }
 
     @Override

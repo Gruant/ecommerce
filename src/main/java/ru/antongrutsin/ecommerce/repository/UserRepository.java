@@ -6,5 +6,5 @@ import ru.antongrutsin.ecommerce.domain.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    User findByLogin(String username);
+    User findOneByLogin(String username);
 }
