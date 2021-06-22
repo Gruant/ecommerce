@@ -3,6 +3,7 @@ package ru.antongrutsin.ecommerce.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Data
 @Table(name = "PRODUCT")
@@ -21,7 +22,7 @@ public class Product {
     private String description;
 
     @Column(name = "cost")
-    private double cost;
+    private BigDecimal cost;
 
     @Column(name = "photo", unique = true)
     private String photo;

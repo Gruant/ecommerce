@@ -19,7 +19,6 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-
     public Product getById(long id) throws NotFoundException {
         Optional<Product> element = productRepository.findById(id);
         return element.orElseThrow(() -> new NotFoundException("Entity not found or id is wrong"));
