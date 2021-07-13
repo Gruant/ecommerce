@@ -2,6 +2,8 @@ package ru.antongrutsin.ecommerce.service;
 
 import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.antongrutsin.ecommerce.domain.Product;
@@ -30,5 +32,9 @@ public class ProductService {
 
     public void delete(long id) {
         productRepository.deleteById(id);
+    }
+
+    public Page<Product> findAllByPaging(Product product, Pageable pageable) {
+        return productRepository.findAll(product, pageable);
     }
 }

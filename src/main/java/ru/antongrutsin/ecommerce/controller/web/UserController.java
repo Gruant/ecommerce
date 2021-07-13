@@ -1,4 +1,4 @@
-package ru.antongrutsin.ecommerce.controller;
+package ru.antongrutsin.ecommerce.controller.web;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

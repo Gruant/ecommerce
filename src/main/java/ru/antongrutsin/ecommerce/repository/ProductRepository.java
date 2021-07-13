@@ -1,5 +1,7 @@
 package ru.antongrutsin.ecommerce.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import ru.antongrutsin.ecommerce.domain.Category;
 import ru.antongrutsin.ecommerce.domain.Product;
@@ -13,4 +15,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findProductByCostGreaterThanEqualAndCostLessThanEqual(double cost, double cost2);
     List<Product> findProductByCategoryId(Category category);
     List<Product> findProductByCategoryIdAndCostGreaterThanEqualAndCostLessThanEqual(Category category, double cost, double cost2);
+
+    Page<Product> findAll(Product product, Pageable pageable);
 }

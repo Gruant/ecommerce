@@ -1,12 +1,13 @@
 package ru.antongrutsin.ecommerce.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
+import java.util.List;
 
 @Data
-@Table(name = "PRODUCT")
+@Table(name = "product")
 @Entity
 public class Product {
 
@@ -22,10 +23,11 @@ public class Product {
     private String description;
 
     @Column(name = "cost")
-    private BigDecimal cost;
+    private Double cost;
 
-    @Column(name = "photo", unique = true)
-    private String photo;
+    @OneToMany(mappedBy = "product")
+    @JsonIgnore
+    private List<ProductImage> images;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")

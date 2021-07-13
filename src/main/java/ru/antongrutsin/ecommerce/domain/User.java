@@ -36,6 +36,12 @@ public class User implements UserDetails {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "phone")
+    private String phone;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_authority",
