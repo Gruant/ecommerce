@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
 public class OrderService {
     private OrderRepository orderRepository;
 
-    private Cart cart;
+    private final Cart cart;
 
     @Autowired
     private void setOrderRepository(OrderRepository orderRepository) {

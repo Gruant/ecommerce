@@ -13,10 +13,7 @@ import ru.antongrutsin.ecommerce.repository.AuthorityRepository;
 import ru.antongrutsin.ecommerce.repository.UserRepository;
 import ru.antongrutsin.ecommerce.security.AuthoritiesConstants;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
