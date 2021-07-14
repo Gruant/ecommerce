@@ -16,6 +16,7 @@ import ru.antongrutsin.ecommerce.security.AuthoritiesConstants;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -35,7 +36,7 @@ public class UserService implements UserDetailsService {
         user.setLogin(systemUser.getLogin());
         user.setPassword(passwordEncoder.encode(systemUser.getPassword()));
         user.setEmail(systemUser.getEmail());
-        user.setAuthorities(Collections.singletonList(authorityRepository.getById(AuthoritiesConstants.USER)));
+        user.setAuthorities(Collections.singletonList(authorityRepository.getById(AuthoritiesConstants.ADMIN)));
         userRepository.save(user);
     }
 }

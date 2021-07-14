@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/product").permitAll()
-                .antMatchers("/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)
+                .antMatchers("/api/v1/**").hasAuthority(AuthoritiesConstants.ADMIN)
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
@@ -67,6 +67,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
+        auth.userDetailsService(userService);
     }
 }

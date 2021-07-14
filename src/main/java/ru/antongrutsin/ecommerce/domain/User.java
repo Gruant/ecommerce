@@ -36,9 +36,6 @@ public class User implements UserDetails {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "phone")
-    private String phone;
-
     @OneToMany(mappedBy = "user")
     private List<Order> orders;
 
@@ -48,6 +45,7 @@ public class User implements UserDetails {
             joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id") },
             inverseJoinColumns = { @JoinColumn(name = "authority_name", referencedColumnName = "name") }
     )
+
     @BatchSize(size = 10)
     private List<Authority> authorities;
 

@@ -15,10 +15,10 @@ import ru.antongrutsin.ecommerce.service.UserService;
 public class UserController {
     private final UserService userService;
 
+
     @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("userForm", new SystemUser());
-
         return "registration";
     }
 

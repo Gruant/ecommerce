@@ -34,7 +34,4 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    public Page<Product> findAllByPaging(Product product, Pageable pageable) {
-        return productRepository.findAll(product, pageable);
-    }
 }

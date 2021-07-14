@@ -16,5 +16,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findProductByCategoryId(Category category);
     List<Product> findProductByCategoryIdAndCostGreaterThanEqualAndCostLessThanEqual(Category category, double cost, double cost2);
 
-    Page<Product> findAll(Product product, Pageable pageable);
+
 }

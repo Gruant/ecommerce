@@ -2,6 +2,7 @@ package ru.antongrutsin.ecommerce.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
@@ -21,4 +22,7 @@ public class ProductImage {
 
     @Column(name = "path")
     private String path;
+
+    public ProductImage(Long id, String toString) {
+    }
 }
