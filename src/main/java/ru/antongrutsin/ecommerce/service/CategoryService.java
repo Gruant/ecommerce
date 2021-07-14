@@ -8,7 +8,7 @@ import ru.antongrutsin.ecommerce.repository.CategoryRepository;
 import java.util.List;
 
 @Service
-public class CategoryService {
+public class CategoryService{
 
     private CategoryRepository categoryRepository;
 
@@ -20,4 +20,9 @@ public class CategoryService {
     public List<Category> findAll() {
         return categoryRepository.findAll();
     }
+
+    public Category findById(Long id) { return categoryRepository.findById(id).get();}
+
+    public Category findByName(String category) { return categoryRepository.findByName(category); }
+
 }

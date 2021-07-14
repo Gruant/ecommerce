@@ -15,13 +15,13 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     public List<Product> getAll() {
         return productRepository.findAll();
     }
 
-    public Product getById(long id) throws NotFoundException {
+    public Product getById(Long id) throws NotFoundException {
         Optional<Product> element = productRepository.findById(id);
         return element.orElseThrow(() -> new NotFoundException("Entity not found or id is wrong"));
     }

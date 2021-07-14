@@ -5,12 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "products_images")
 @Data
 @NoArgsConstructor
-public class ProductImage {
+public class ProductImage implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -23,6 +24,4 @@ public class ProductImage {
     @Column(name = "path")
     private String path;
 
-    public ProductImage(Long id, String toString) {
-    }
 }

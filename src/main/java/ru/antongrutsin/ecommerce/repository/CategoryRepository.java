@@ -5,5 +5,6 @@ import org.springframework.stereotype.Repository;
 import ru.antongrutsin.ecommerce.domain.Category;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Integer> {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+    Category findByName(String category);
 }
