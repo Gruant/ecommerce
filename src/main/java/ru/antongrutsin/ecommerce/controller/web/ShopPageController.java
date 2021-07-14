@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.antongrutsin.ecommerce.domain.Category;
@@ -15,7 +14,7 @@ import ru.antongrutsin.ecommerce.service.ProductService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/shopPage")
+@RequestMapping("/shop")
 @RequiredArgsConstructor
 public class ShopPageController {
     private final ProductService productService;
@@ -29,7 +28,7 @@ public class ShopPageController {
         return "shop";
     }
 
-    @GetMapping
+    @GetMapping("/category")
     public String showProductsByCategoryId(Model model,
                                            @RequestParam Long categoryId){
         List<Product> products = productService.getByCategoryId(categoryId);
