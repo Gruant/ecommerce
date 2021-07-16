@@ -6,7 +6,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import ru.antongrutsin.ecommerce.enums.Status;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +14,7 @@ import java.util.List;
 @Table(name = "orders")
 @Data
 public class Order {
-    public Order() {
-
-    }
-
-    public enum Status {
-        CREATED, PAID, SENT, RECEIVED, CANCELED
-    }
+    public Order() {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,7 +54,7 @@ public class Order {
         this.phone = phone;
         this.address = address;
         this.products = new ArrayList<>();
-        this.status = Status.CREATED;
+        this.status = Status.CART;
         this.price = 0.0;
     }
 

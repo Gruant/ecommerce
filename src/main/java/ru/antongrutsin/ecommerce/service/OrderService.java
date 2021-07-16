@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.antongrutsin.ecommerce.domain.Order;
 import ru.antongrutsin.ecommerce.domain.User;
+import ru.antongrutsin.ecommerce.enums.Status;
 import ru.antongrutsin.ecommerce.repository.OrderRepository;
 
 import java.util.HashMap;
@@ -50,7 +51,7 @@ public class OrderService {
         return orderRepository.findById(orderId).orElseThrow(NoSuchElementException::new);
     }
 
-    public void setOrderStatus(Long orderId, Order.Status status){
+    public void setOrderStatus(Long orderId, Status status){
         Order order = orderRepository.findById(orderId).orElseThrow(NoSuchElementException::new);
         order.setStatus(status);
         orderRepository.save(order);
