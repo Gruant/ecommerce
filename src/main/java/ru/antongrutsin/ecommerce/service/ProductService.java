@@ -50,7 +50,7 @@ public class ProductService {
     }
 
     public List<Product> getByCategoryId(Long id){
-        return productRepository.getByCategoryId(id);
+        return productRepository.findProductByCategoryId(categoryService.findById(id));
     }
 
     public void deleteById(Long id) {

@@ -37,7 +37,7 @@ public class ShopPageController {
         List<Category> categories = getCategories();
         model.addAttribute("products", products);
         model.addAttribute("categories",categories);
-        return "shop";
+        return "/shop";
     }
 
     private List<Category> getCategories(){
