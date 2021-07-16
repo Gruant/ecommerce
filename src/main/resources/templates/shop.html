@@ -12,9 +12,8 @@
 					<div class="banner_content text-center">
 						<h2>Shop Category Page</h2>
 						<div class="page_link">
-							<a href="index.html">Home</a>
-							<a href="shop.html">Category</a>
-							<a href="shop.html">Women Fashion</a>
+							<a th:href="@{/index}">Главная</a>
+							<a th:href="@{/shop}">Магазин</a>
 						</div>
 					</div>
 				</div>
@@ -55,16 +54,16 @@
 <!--        					</div>-->
 <!--        				</div>-->
         				<div class="latest_product_inner row">
-							<div class="col-lg-4 col-md-4 col-sm-6" th: th:each="product: ${products}">
+							<div class="col-lg-4 col-md-4 col-sm-6" th:each="product: ${products}">
 								<div class="f_p_item">
 									<div class="f_p_img" >
-										<img class="img-fluid" th:src="${product.getImages().get(0).getPath()}" alt="">
+										<img class="img-fluid" th:src="@{${product.images.get(0).getPath()}}" alt="">
 										<div class="p_icon">
 											<a href="#"><i class="lnr lnr-cart"></i></a>
 										</div>
 									</div>
-									<a href="#"><h4 th:text="${product.getName()}"></h4></a>
-									<h5 th:text="${product.getCost()}"></h5>
+									<a href="#"><h4 th:text="${product.name}"></h4></a>
+									<h5 th:text="${product.cost}"></h5>
 								</div>
 							</div>
 						</div>
@@ -73,40 +72,11 @@
         				<div class="left_sidebar_area">
         					<aside class="left_widgets cat_widgets">
         						<div class="l_w_title">
-									<h3>Browse Categories</h3>
+									<h3>Категории</h3>
 								</div>
         						<div class="widgets_inner">
 									<ul class="list">
-										<li><a href="#">Fruits and Vegetables</a></li>
-										<li>
-											<a href="#">Meat and Fish</a>
-											<ul class="list">
-												<li><a href="#">Frozen Fish</a></li>
-												<li><a href="#">Dried Fish</a></li>
-												<li><a href="#">Fresh Fish</a></li>
-												<li><a href="#">Meat Alternatives</a></li>
-												<li><a href="#">Meat</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Cooking</a>
-											<ul class="list">
-												<li><a href="#">Frozen Fish</a></li>
-												<li><a href="#">Dried Fish</a></li>
-												<li><a href="#">Fresh Fish</a></li>
-												<li><a href="#">Meat Alternatives</a></li>
-												<li><a href="#">Meat</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Beverages</a>
-											<ul class="list">
-												<li><a href="#">Frozen Fish</a></li>
-												<li><a href="#">Dried Fish</a></li>
-												<li><a href="#">Fresh Fish</a></li>
-												<li><a href="#">Meat Alternatives</a></li>
-												<li><a href="#">Meat</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Home and Cleaning</a></li>
+										<li th:each="category: ${categories}"><a th:text="${category.name}" th:href="@{shop/category/{id}(id=${category.id})">Fruits and Vegetables</a></li>
 									</ul>
         						</div>
         					</aside>

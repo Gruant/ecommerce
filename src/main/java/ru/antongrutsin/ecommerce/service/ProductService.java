@@ -13,8 +13,11 @@ import ru.antongrutsin.ecommerce.repository.ProductRepository;
 import ru.antongrutsin.ecommerce.service.exception.NotFoundException;
 import ru.antongrutsin.ecommerce.wrapper.ProductWrapper;
 
+import javax.annotation.PostConstruct;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -24,7 +27,14 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
-    private final Path root = Paths.get("images/");
+    private final Path root = Paths.get("static/img/");
+
+//    @PostConstruct
+//    public void checkRootDir() throws IOException {
+//        if (Files.notExists(root)){
+//            Files.createDirectory(root);
+//        }
+//    }
 
     private final ProductRepository productRepository;
     private final ProductImageRepository productImageRepository;
@@ -48,10 +58,14 @@ public class ProductService {
     }
 
     public void addProduct(ProductWrapper product) throws IOException {
+
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(product.getImage().getOriginalFilename()));
-        Path filePath = root.resolve(fileName);
-        FileOutputStream output = new FileOutputStream(String.valueOf(filePath));
+        String fileLocation = new File("src" + File.separator + "main" + File.separator + "resources" + File.separator
+                + "static" + File.separator + "img").getAbsolutePath() + File.separator + fileName;
+
+        FileOutputStream output = new FileOutputStream(fileLocation);
         output.write(product.getImage().getBytes());
+        output.close();
 
 
         Product productDomain = new Product();
@@ -63,7 +77,7 @@ public class ProductService {
 
         ProductImage productImage = new ProductImage();
         productImage.setProduct(newProduct);
-        productImage.setPath(filePath.toString());
+        productImage.setPath("img" + File.separator + fileName);
 
         productImageRepository.save(productImage);
     }

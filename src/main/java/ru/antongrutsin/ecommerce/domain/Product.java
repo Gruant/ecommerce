@@ -26,7 +26,7 @@ public class Product implements Serializable {
     @Column(name = "cost")
     private Double cost;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ProductImage> images;
 
@@ -34,5 +34,4 @@ public class Product implements Serializable {
     @JoinColumn(name = "category_id")
     @JsonIgnore
     private Category categoryId;
-
 }

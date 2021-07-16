@@ -33,7 +33,7 @@ public class UserService implements UserDetailsService {
         user.setLogin(systemUser.getLogin());
         user.setPassword(passwordEncoder.encode(systemUser.getPassword()));
         user.setEmail(systemUser.getEmail());
-        user.setAuthorities(Collections.singletonList(authorityRepository.getById(AuthoritiesConstants.ADMIN)));
+        user.setAuthorities(Collections.singletonList(authorityRepository.getById(AuthoritiesConstants.USER)));
         userRepository.save(user);
     }
 }
